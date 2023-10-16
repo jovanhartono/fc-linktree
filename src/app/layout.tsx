@@ -2,6 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
 import { ReactNode } from "react";
+import Image from "next/image";
+import Logo from "../../public/fc-logo.webp";
 
 const inter = Inter_Tight({ subsets: ["latin"] });
 
@@ -17,9 +19,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.className} max-w-lg mx-auto h-screen antialiased bg-slate-50`}
+        className={`${inter.className} max-w-lg mx-auto h-screen antialiased`}
       >
-        {children}
+        <main className="container h-full py-6 flex flex-col gap-6">
+          <div className="flex justify-center">
+            <Image src={Logo} alt={"Fresclean logo"} width={200} height={200} />
+          </div>
+          {children}
+        </main>
       </body>
     </html>
   );
