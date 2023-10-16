@@ -57,7 +57,7 @@ export default function WhatsappPage() {
         </button>
       </a>
 
-      <Link href={"/"}>
+      <Link href={"/"} replace>
         <button className="hover:bg-slate-50/50 w-full gap-2 outline-none focus-visible:ring-2 focus-visible:ring-offset-4 border border-gray-500 hover:border-gray-700 transition-colors bg-white active:bg-slate-50 rounded-md flex items-center justify-center text-gray-700 h-12">
           <span>...Others</span>
         </button>
