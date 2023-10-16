@@ -4,6 +4,7 @@ import { Inter_Tight } from "next/font/google";
 import { ReactNode } from "react";
 import Image from "next/image";
 import Logo from "../../public/fc-logo.webp";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter_Tight({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
           {children}
         </main>
+        <Analytics />
       </body>
     </html>
   );
