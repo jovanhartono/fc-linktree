@@ -53,6 +53,10 @@ export default function Home() {
           <span>Google Maps</span>
         </button>
       </Link>
+
+      <a className="hover:bg-slate-50/50 w-full gap-2 outline-none focus-visible:ring-2 focus-visible:ring-offset-4 border border-gray-500 hover:border-gray-700 transition-colors bg-white active:bg-slate-50 rounded-md flex items-center justify-center text-gray-700 h-12" href="https://fresclean.id">
+      Our Work
+      </a>
     </div>
   );
 }
