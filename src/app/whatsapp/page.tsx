@@ -114,7 +114,7 @@ export default function WhatsappPage() {
       </a>
 
       <a
-        href={`https://api.whatsapp.com/send/?phone=6281290543818&text=${encodeURIComponent(
+        href={`https://api.whatsapp.com/send/?phone=6285723220022&text=${encodeURIComponent(
           "Halo Billy! Saya ingin bertanya tentang Fresclean",
         )}&type=phone_number&app_absent=0`}
         target={"_blank"}
