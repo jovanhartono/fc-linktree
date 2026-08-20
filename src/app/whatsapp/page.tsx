@@ -1,4 +1,7 @@
+import { get } from "@vercel/edge-config";
 import Link from "next/link";
+
+export const dynamic = "force-dynamic";
 
 interface WhatsappEntry {
 	phone: string;
@@ -7,7 +10,7 @@ interface WhatsappEntry {
 	balance?: boolean;
 }
 
-const entries: WhatsappEntry[] = [
+const fallbackEntries: WhatsappEntry[] = [
 	{
 		phone: "628871958856",
 		label: "Citra Garden 6, Kalideres",
@@ -57,7 +60,9 @@ const entries: WhatsappEntry[] = [
 	},
 ];
 
-const WhatsappPage = () => {
+const WhatsappPage = async () => {
+	const entries = (await get<WhatsappEntry[]>("whatsapp")) ?? fallbackEntries;
+
 	return (
 		<div className={"flex flex-col gap-3"}>
 			{entries.map(({ phone, label, message, balance }) => (

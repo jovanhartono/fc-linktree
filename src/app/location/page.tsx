@@ -1,4 +1,7 @@
+import { get } from "@vercel/edge-config";
 import Link from "next/link";
+
+export const dynamic = "force-dynamic";
 
 interface LocationEntry {
 	mapsUrl: string;
@@ -6,7 +9,7 @@ interface LocationEntry {
 	balance?: boolean;
 }
 
-const entries: LocationEntry[] = [
+const fallbackEntries: LocationEntry[] = [
 	{
 		mapsUrl: "https://maps.app.goo.gl/MVXZQUZq3goPPCyZA",
 		label: "Citra Garden 6, Kalideres",
@@ -43,7 +46,9 @@ const entries: LocationEntry[] = [
 	},
 ];
 
-const LocationPage = () => {
+const LocationPage = async () => {
+	const entries = (await get<LocationEntry[]>("locations")) ?? fallbackEntries;
+
 	return (
 		<div className={"flex flex-col gap-3"}>
 			{entries.map(({ mapsUrl, label, balance }) => (
